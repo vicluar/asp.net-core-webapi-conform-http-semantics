@@ -20,6 +20,7 @@ namespace WebApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = movie.Id }, movie);
         }
 
+        [HttpGet]
         public IActionResult GetById(int id)
         {
             var movie = new Movie
@@ -31,6 +32,13 @@ namespace WebApi.Controllers
             };
 
             return Ok(movie);
+        }
+
+        [Route("processmovie")]
+        [HttpPost]
+        public IActionResult ProcessMovie(Movie movie)
+        {
+            return Ok(new { result = "Sucessful" });
         }
     }
 }
