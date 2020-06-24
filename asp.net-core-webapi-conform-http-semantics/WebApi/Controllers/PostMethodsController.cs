@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Model;
 
 namespace WebApi.Controllers
@@ -39,6 +33,13 @@ namespace WebApi.Controllers
         public IActionResult ProcessMovie(Movie movie)
         {
             return Ok(new { result = "Sucessful" });
+        }
+
+        [Route("postnoresult")]
+        [HttpPost]
+        public IActionResult PostNoResult(Movie movie)
+        {
+            return new NoContentResult();
         }
     }
 }
