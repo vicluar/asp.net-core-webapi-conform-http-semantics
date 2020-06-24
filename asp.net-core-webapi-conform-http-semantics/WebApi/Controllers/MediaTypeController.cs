@@ -12,6 +12,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class MediaTypeController : ControllerBase
     {
+        [Route("addmoviecontenttypeexample")]
         [HttpPost]
         public IActionResult AddMovieContentTypeExample(Movie movie)
         {
