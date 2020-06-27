@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApi.Model;
 
 namespace WebApi.Controllers
 {
@@ -6,6 +7,18 @@ namespace WebApi.Controllers
     [ApiController]
     public class DeleteMethodsController : ControllerBase
     {
+        [Route("deletemovie")]
+        [HttpDelete]
+        public IActionResult DeleteMovie(int movieId)
+        {
+            return NoContent();
+        }
 
+        [Route("notfoundtodelete")]
+        [HttpDelete]
+        public IActionResult NotFoundToDelete(int movieId)
+        {
+            return NotFound();
+        }
     }
 }
