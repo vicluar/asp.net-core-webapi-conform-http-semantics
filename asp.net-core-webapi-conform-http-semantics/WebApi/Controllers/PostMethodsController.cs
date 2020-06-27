@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult PostNoResult(Movie movie)
         {
-            return new NoContentResult();
+            return NoContent();
         }
     }
 }

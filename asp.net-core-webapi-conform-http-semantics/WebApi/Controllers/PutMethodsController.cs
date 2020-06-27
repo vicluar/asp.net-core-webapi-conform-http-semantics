@@ -25,7 +25,7 @@ namespace WebApi.Controllers
         [HttpPut]
         public IActionResult UpdateMovieNoResult(Movie movie)
         {
-            return new NoContentResult();
+            return NoContent();
         }
 
         [Route("notpossibleupdatedueconflict")]
