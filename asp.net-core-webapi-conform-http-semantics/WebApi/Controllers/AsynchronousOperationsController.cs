@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApi.Model;
 
 namespace WebApi.Controllers
@@ -23,7 +18,28 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult Status(int processId)
         {
-            return Ok(new { status = "In progress" });
+            return AcceptedAtAction(nameof(Status), new { processId = 12345 }, new Movie());
+        }
+
+        [Route("processmovietocomplete")]
+        [HttpPost]
+        public IActionResult ProcessMovieToComplete(Movie movie)
+        {
+            return AcceptedAtAction(nameof(StatusComplete), new { processId = 6789 }, movie);
+        }
+
+        [Route("statuscomplete")]
+        [HttpGet]
+        public IActionResult StatusComplete(int processId)
+        {
+            return RedirectToAction(nameof(FetchResource), new { id = 12345 });
+        }
+
+        [Route("fetchresource")]
+        [HttpGet]
+        public IActionResult FetchResource(int id)
+        {
+            return Ok(new Movie());
         }
     }
 }
